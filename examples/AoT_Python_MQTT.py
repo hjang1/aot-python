@@ -10,8 +10,8 @@ import sys
 
 from mqtt.client import AOTMqttClient
 
-DeviceID = "D59850137584"  # 디바이스 인증정보(디바이스 ID)
-DeviceKey = "e8d54baed5354575"  # 디바이스 인증정보(인증 헤더)
+DeviceID = "xxx"  # 디바이스 인증정보(디바이스 ID)
+DeviceKey = "xxx"  # 디바이스 인증정보(인증 헤더)
 client = None
 
 """
