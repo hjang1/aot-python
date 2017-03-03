@@ -42,7 +42,7 @@ class AOTMqttClient:
         self.mqttModel = None                               # MQTT message container
 
 
-    # TLS is not supportable on this version
+    # TLS is not supportable on this version.
     def setDeviceInfo(self, deviceID, deviceKey, d_callBack, n_callback, tls=False):
         try:
             self.mqttModel = MQTTModel(deviceID, deviceKey)
