@@ -5,10 +5,11 @@ Copyright (c) 2017  ntels Co., LTD.
 @author: Donghee Kim
 '''
 
+import os
+import sys
 from time import sleep
-import sys, os
 
-from mqtt.client import AOTMqttClient
+from AoT.mqtt.client import AOTMqttClient
 
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, '../')  # 상위 디렉토리의 파일을 사용하기 위해 경로 변경
