@@ -17,6 +17,7 @@ limitations under the License.
 from util.models import MQTTModel
 import paho.mqtt.client as mqtt
 import json
+import sys
 from time import sleep
 
 
@@ -78,14 +79,15 @@ class AOTMqttClient:
                 self.client.connect(self.HOST, self.PORT, self.KEEPALIVE)
                 self.on_listen()
                 sleep(1)
-                print "[Log] connect: Sync connection Success"
-
+                if (self.connected==True):
+                    print "[Log] connect: Sync connection Success"
+                else:
+                    sys.exit()
 
             elif mode == "Async":
                 self.client.connect_async(self.HOST, self.PORT, self.KEEPALIVE)
                 print "[Log] connect: Async connection Success"
-        else:
-            print "[Log] connect: connection fail"
+
 
     """
     @Method: on_listen()
@@ -185,7 +187,7 @@ class AOTMqttClient:
             # self.on_listen()           # network thread on
             self.client.subscribe(self.subscribe_topic)
         else:  # 접속 실패시 에러 메세지
-            self.errorMessages(("on_connect", rc))
+            print "[log] __on_connect: Connection refused."
 
     """
     @Callback Method: __on_disconnect()

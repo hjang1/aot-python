@@ -6,9 +6,12 @@ Copyright (c) 2017  ntels Co., LTD.
 '''
 
 from time import sleep
-import sys
+import sys, os
 
 from mqtt.client import AOTMqttClient
+
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, '../')  # 상위 디렉토리의 파일을 사용하기 위해 경로 변경
 
 DeviceID = "xxx"  # 디바이스 인증정보(디바이스 ID)
 DeviceKey = "xxx"  # 디바이스 인증정보(인증 헤더)
