@@ -34,4 +34,4 @@ python AoT_Python_MQTT.py
 ## Authors
 
 * **Donghee Kim** - *nTels Researcher* - [All of Things](https://github.com/ntels-aot)
-* **Huk Jang** - *nTels Researcher* - [All of Things](https://github.com/ntels-aot)
+* **Hyuck Jang** - *nTels Researcher* - [All of Things](https://github.com/ntels-aot)
