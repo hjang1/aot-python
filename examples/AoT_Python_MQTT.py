@@ -10,13 +10,17 @@ import sys
 
 from mqtt.client import AOTMqttClient
 
-
-DeviceID = "D59850137584"            # 디바이스 인증정보(디바이스 ID)
-DeviceKey = "e8d54baed5354575"       # 디바이스 인증정보(인증 헤더)
+DeviceID = "D59850137584"  # 디바이스 인증정보(디바이스 ID)
+DeviceKey = "e8d54baed5354575"  # 디바이스 인증정보(인증 헤더)
 client = None
 
+"""
+@Function: deviceCmdOperation
+@Param: data - requested command data.
+@Return: You can return any value that want responds to.
+@Explain: This function is called, if device command request message arrived.
+"""
 def deviceCmdOperation(data):
-
     if data[0] == "forward":
         print "[Result] deviceCmdOperation: Forwarded"
         return True
@@ -24,6 +28,12 @@ def deviceCmdOperation(data):
         print "[Result] deviceCmdOperation: Not defined"
         return False
 
+"""
+@Function: deviceCmdOperation
+@Param: data - requested command data.
+@Return: You can return any value that want responds to.
+@Explain: This function is called, if node command request message arrived.
+"""
 def nodeCmdOperation(data):
     if data[0] == "stop":
         print "command message is accepted for [ node: " + data[1] + " ]"
@@ -43,12 +53,14 @@ def nodeCmdOperation(data):
 if __name__ == "__main__":
 
     try:
+        # NOTE: get AOT MQTT Client
         client = AOTMqttClient()
+        # NOTE: set Device information to connect the AoT server.
         client.setDeviceInfo(DeviceID, DeviceKey, deviceCmdOperation, nodeCmdOperation, tls=True)
+        # NOTE: Starts to connect
         client.connect()
 
         while True:
-
             # Note: publish the device content
             client.publishDeviceContent(50)
 
