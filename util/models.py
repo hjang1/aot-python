@@ -22,8 +22,6 @@ import json
 from datetime import datetime
 from collections import OrderedDict
 
-
-
 class JSONEncoder(json.JSONEncoder):
     # @override
     def default(self, obj):
@@ -34,12 +32,10 @@ class JSONEncoder(json.JSONEncoder):
         else:
             return json.JSONEncoder.default(self, obj)
 
-
 class MQTTModel:
     def __init__(self, deviceID=None, deviceKey=None):
         self.deviceID = deviceID
         self.deviceKey = deviceKey
-
 
     def getDeviceContentModelJson(self, contentValue=None):
         dic = OrderedDict()
@@ -47,7 +43,6 @@ class MQTTModel:
         dic["device_id"] = self.deviceID
         dic["device_key"] = self.deviceKey
         dic["content_value"] = contentValue
-
         return json.dumps(dic, sort_keys=False, ensure_ascii=False)
 
     def getNodeContentModelJson(self, contentValue=None, nodeID=None):
@@ -57,7 +52,6 @@ class MQTTModel:
         dic["device_key"] = self.deviceKey
         dic["node_id"] = nodeID
         dic["content_value"] = contentValue
-
         return json.dumps(dic, sort_keys=False, ensure_ascii=False)
 
     def getdeviceResCmdModelJson(self, responseValue=None, commandID=None):
