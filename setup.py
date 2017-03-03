@@ -3,7 +3,7 @@ from distutils.core import setup
 setup(
     name='aot-python',
     version='1.0',
-    packages=['AoT', 'AoT.mqtt', 'AoT.util', 'examples'],
+    packages=['AoT', 'AoT.Mqtt', 'AoT.util', 'examples'],
     url='www.allofthings.com',
     license='',
     author='dhkim',
